@@ -27,21 +27,49 @@ unsigned short int Add_default() {
 
 unsigned short int Add_SSE() {
 
-	//__m128 num0, num1, num2, num3, num4, num5, num6;
+	__m128 num1, num2, num3;
+	
+	for (int i = 0; i < M2; i += 4) {
+		num1 = _mm_loadu_ps(&X1[i]);
+		num2 = _mm_loadu_ps(&X2[i]);
+		num3 = _mm_add_ps(num1, num2);
+		_mm_storeu_ps(&Y1[i], num3);
+	}
+	return 0;
+}
 
-	//write your code here
+unsigned short int Add_SSE_Any_Size() {
 
+	__m128 num1, num2, num3;
+    int i;
 
+	for (int i = 0; i < (M2/4)*4; i += 4) {
+		num1 = _mm_loadu_ps(&X1[i]);
+		num2 = _mm_loadu_ps(&X2[i]);
+		num3 = _mm_add_ps(num1, num2);
+		_mm_storeu_ps(&Y1[i], num3);
+	}
+
+	//padding
+	for (i=((M2/4; i++) {
+		Y1[i] = X1[i] + X2[i];
+	}
 	return 0;
 }
 
 
 unsigned short int Add_AVX() {
 
-	//__m256  ymm0, ymm1, ymm2, ymm3, ymm4;
+	__m256  ymm1, ymm2, ymm3;
 
-	//write your code here
+	for (int i = 0; i < M2; i += 8) {
+		ymm1 = _mm256_loadu_ps(&X1[i]);
+		ymm2 = _mm256_loadu_ps(&X2[i]);
+		ymm3 = _mm256_add_ps(ymm1, ymm2);
+		_mm256_storeu_ps(&Y1[i], ymm3);
 
+
+	}
 
 	return 0;
 }

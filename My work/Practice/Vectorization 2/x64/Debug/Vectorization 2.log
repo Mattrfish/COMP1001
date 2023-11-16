@@ -1,0 +1,4 @@
+﻿  array_addition.cpp
+  main.cpp
+  Generating Code...
+C:\Users\mfish\github\COMP1001\COMP1001-master\Vectorization 2nd lab session\code_to_start\array_addition.cpp(54): error C4700: uninitialized local variable 'i' used

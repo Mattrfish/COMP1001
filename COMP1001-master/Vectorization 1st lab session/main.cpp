@@ -41,8 +41,8 @@ int main() {
 	for (t = 0; t < TIMES_TO_RUN; t++) {
 
 		//output = ConstAdd_default();
-		output = ConstAdd_SSE();
-		//output = ConstAdd_AVX();
+		//output = ConstAdd_SSE();
+		output = ConstAdd_AVX();
 
 
 	}

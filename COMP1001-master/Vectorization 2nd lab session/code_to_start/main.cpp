@@ -9,7 +9,7 @@
 #include "array_addition.h"
 #include "array_constant_addition.h"
 
-#define TIMES_TO_RUN 1 //how many times the function will run
+#define TIMES_TO_RUN 10 //how many times the function will run
 
 void print_message(char s[], unsigned short int outcome);
 
@@ -50,10 +50,11 @@ int main() {
 
 		//output = ConstAdd_default();
 		//output = ConstAdd_SSE();
-		output = ConstAdd_AVX();
+		//output = ConstAdd_AVX();
 
 		//output = Add_default();
 		//output = Add_SSE();
+		output = Add_SSE_Any_Size();
 		//output = Add_AVX();
 
 
