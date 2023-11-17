@@ -43,7 +43,7 @@ unsigned short int Add_SSE_Any_Size() {
 	__m128 num1, num2, num3;
     int i;
 
-	for (int i = 0; i < (M2/4)*4; i += 4) {
+	for (i = 0; i < (M2/4)*4; i += 4) {
 		num1 = _mm_loadu_ps(&X1[i]);
 		num2 = _mm_loadu_ps(&X2[i]);
 		num3 = _mm_add_ps(num1, num2);
@@ -51,7 +51,7 @@ unsigned short int Add_SSE_Any_Size() {
 	}
 
 	//padding
-	for (i=((M2/4; i++) {
+	for (i=((M2/4)*4); i < M2; i++) {
 		Y1[i] = X1[i] + X2[i];
 	}
 	return 0;
@@ -72,6 +72,17 @@ unsigned short int Add_AVX() {
 	}
 
 	return 0;
+}
+
+
+unsigned short int Add_AVX_Any_Size() {
+
+	__m256 ymm1, ymm2, ymm3;
+	int i;
+
+	for (i = 0; i < (M2 / 8) * 8; i += 8) {
+		ymm1 = 
+	}
 }
 
 

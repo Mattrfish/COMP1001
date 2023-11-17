@@ -10,7 +10,7 @@
 #include <immintrin.h>
 
 //initialization 
-#define M2 1000000
+#define M2 100000
  
 
 void initialization_Add();
@@ -19,6 +19,7 @@ unsigned short int Add_default();
 unsigned short int Add_SSE();
 unsigned short int Add_SSE_Any_Size();
 unsigned short int Add_AVX();
+unsigned short int Add_AVX_Any_Size();
 unsigned short int Compare_Add();
 extern unsigned short int equal(float a, float b); //used extern as this is defined in array_constant_addition.h
 
