@@ -81,8 +81,18 @@ unsigned short int Add_AVX_Any_Size() {
 	int i;
 
 	for (i = 0; i < (M2 / 8) * 8; i += 8) {
-		ymm1 = 
+		ymm1 = _mm256_loadu_ps(&X1[i]);
+		ymm2 = _mm256_loadu_ps(&X2[i]);
+		ymm3 = _mm256_add_ps(ymm1, ymm2);
+		_mm256_storeu_ps(&Y1[i], ymm3);
 	}
+		//padding
+		
+	for (i = (M2 / 8) * 8; i < M2; i++) {
+			Y1[i] = X1[i] + X2[i];
+	}
+
+	return 0;
 }
 
 

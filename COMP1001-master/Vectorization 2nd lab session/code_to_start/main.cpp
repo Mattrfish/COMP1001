@@ -54,8 +54,9 @@ int main() {
 
 		//output = Add_default();
 		//output = Add_SSE();
-		output = Add_SSE_Any_Size();
+		//output = Add_SSE_Any_Size();
 		//output = Add_AVX();
+		output = Add_AVX_Any_Size();
 
 
 	}
