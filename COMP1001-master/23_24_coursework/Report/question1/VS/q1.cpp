@@ -23,16 +23,21 @@
 #define ARITHMETIC_OPERATIONS2 4*N*N
 #define TIMES2 10
 
+#define QUAL 10
+
 
 //function declaration
 void initialize();
 void routine1(float alpha, float beta);
 void routine2(float alpha, float beta);
-void routine1_vec(float alpha, float beta);
-void routine2_vec(float alpha, float beta);
+unsigned short int routine1_vec(float alpha, float beta);
+unsigned short int routine2_vec(float alpha, float beta);
+unsigned short int compare_vec1(float alpha, float beta);
+unsigned short int compare_vec2(float alpha, float beta);
+unsigned short int equal(float a, float b);
 
-__declspec(align(64)) float  y[M], z[M] ;
-__declspec(align(64)) float A[N][N], x[N], w[N];
+__declspec(align(64)) float  y[M], z[M], test1[M];
+__declspec(align(64)) float A[N][N], x[N], w[N], test2[N];
 
 
 int main() {
@@ -85,7 +90,14 @@ int main() {
     run_time = omp_get_wtime() - start_time; //end timer
     printf("\n Time elapsed is %f secs \n %e FLOPs achieved\n", run_time, (double)(ARITHMETIC_OPERATIONS2) / ((double)run_time / TIMES2));
 
-    
+    //compare routines to check correctness 
+    printf("\nCompare routines 1 and vec1:");
+    compare_vec1(alpha, beta);
+    printf("\n");
+    printf("\nCompare routines 2 and vec2:");
+    compare_vec2(alpha, beta);
+    printf("\n");
+
     return 0;
 }
 
@@ -97,18 +109,21 @@ void initialize() {
     for (i = 0; i < N; i++)
         for (j = 0; j < N; j++) {
             A[i][j] = (i % 99) + (j % 14) + 0.013f;
+            test2[j] = 0.0f;
         }
 
-    //initialize routine1 arrays
+    //initialize routine2 arrays
     for (i = 0; i < N; i++) {
         x[i] = (i % 19) - 0.01f;
         w[i] = (i % 5) - 0.002f;
+        test2[i] = 0.0f;
     }
 
     //initialize routine1 arrays
     for (i = 0; i < M; i++) {
         z[i] = (i % 9) - 0.08f;
         y[i] = (i % 19) + 0.07f;
+        test1[i] = 0.0f;
     }
 
 
@@ -138,7 +153,7 @@ void routine2(float alpha, float beta) {
 
 }
 
-void routine1_vec(float alpha, float beta) {
+unsigned short int routine1_vec(float alpha, float beta) {
 
     __m128 num1, num2, num3, num4, num5;
     unsigned int i;
@@ -160,10 +175,12 @@ void routine1_vec(float alpha, float beta) {
 
     }
 
+    return 0;
+
 }
 
 
-void routine2_vec(float alpha, float beta) {
+unsigned short int routine2_vec(float alpha, float beta) {
     __m128 num1, num2, num3, num4, num5, num6, num7, num8, num9;
     unsigned int i, j;
 
@@ -175,7 +192,7 @@ void routine2_vec(float alpha, float beta) {
 
             num4 = _mm_set1_ps(alpha);
             num5 = _mm_set1_ps(beta);
-            
+
 
             num6 = _mm_mul_ps(num4, num1);
             num7 = _mm_mul_ps(num6, num2);
@@ -185,7 +202,7 @@ void routine2_vec(float alpha, float beta) {
         }
 
     }
-    
+
     //padding
     for (; i < M; i++) {
         for (; j < N; j++) {
@@ -193,9 +210,64 @@ void routine2_vec(float alpha, float beta) {
         }
     }
 
+    return 0;
+}
 
+unsigned short int compare_vec1(float alpha, float beta) {
+    unsigned int i;
+
+    for (i = 0; i < M; i++) {
+        test1[i] = alpha * y[i] + beta * z[i];
+
+    }
+
+    for (i = 0; i < M; i++) {
+        if (equal(y[i], test1[i]) == 1) {
+            printf("/n i=%d\n", i);
+            return 1;
+        }
+
+        return 0;
+    }
 
 }
+
+unsigned short int compare_vec2(float alpha, float beta) {
+    unsigned int i, j;
+
+    for (i = 0; i < N; i++) {
+
+        for (j = 0; j < N; j++) {
+            test2[i] = w[i] - beta + alpha * A[i][j] * x[j];
+        }
+
+    }
+
+    for (i = 0; i < M; i++) {
+        if (equal(w[i], test2[i]) == 1) {
+            printf("/n i=%d\n", i);
+            return 1;
+        }
+
+        return 0;
+    }
+
+}
+
+    unsigned short int equal(float a, float b) {
+        float temp = a - b;
+        printf("\n %f %f", a, b);
+        if ((fabs(temp) / fabs(b)) < QUAL)
+            return 0;
+        else 
+            return 1;
+    }
+        
+
+
+
+
+
 
 
 
