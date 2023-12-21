@@ -1,4 +1,0 @@
-﻿  q1.cpp
-C:\Users\Matthew\Github\COMP1001\COMP1001-master\23_24_coursework\Report\question1\VS\q1.cpp(233): warning C4715: 'compare_vec1': not all control paths return a value
-C:\Users\Matthew\Github\COMP1001\COMP1001-master\23_24_coursework\Report\question1\VS\q1.cpp(255): warning C4715: 'compare_vec2': not all control paths return a value
-  Coursework - Assessment 2 comp1001.vcxproj -> C:\Users\Matthew\Github\COMP1001\My work\Coursework - Assessment 2 comp1001\x64\Debug\Coursework - Assessment 2 comp1001.exe

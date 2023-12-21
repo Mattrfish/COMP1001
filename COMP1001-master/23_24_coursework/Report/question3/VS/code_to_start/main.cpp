@@ -26,13 +26,13 @@ void openfile(const char* filename, FILE** finput);
 int getint(FILE* fp);
 
 //CRITICAL POINT: images' paths - You need to change these paths
-#define IN "C:\Users\Matthew\Github\COMP1001\My work\Coursework - Assessment 2 comp1001 Q3\input_images\a1.pgm"
-#define OUT "C:\Users\Matthew\Github\COMP1001\My work\Coursework - Assessment 2 comp1001 Q3\output_images\blurred.pgm"
-#define OUT2 "C:\Users\Matthew\Github\COMP1001\My work\Coursework - Assessment 2 comp1001 Q3\output_images\edge_detection.pgm"
+#define IN "C:\Users\Matthew\Github\COMP1001\COMP1001-master\23_24_coursework\Report\question3\VS\code_to_start\input_images\a0.pgm"
+#define OUT "C:\Users\Matthew\Github\COMP1001\COMP1001-master\23_24_coursework\Report\question3\VS\code_to_start\output_images\blurred.pgm"
+#define OUT2 "C:\Users\Matthew\Github\COMP1001\COMP1001-master\23_24_coursework\Report\question3\VS\code_to_start\output_images\edge_detection.pgm"
 
 //IMAGE DIMENSIONS
-#define M 512  //cols
-#define N 512  //rows
+#define M 1024  //cols
+#define N 1024 //rows
 
 
 //CRITICAL POINT:these arrays are defined statically. Consider creating these arrays dynamically instead.
