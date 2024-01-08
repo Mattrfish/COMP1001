@@ -1,0 +1,20 @@
+﻿  main.cpp
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(44,1): error C2059: syntax error: '}'
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(44,1): error C2143: syntax error: missing ';' before '}'
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(46,32): error C2143: syntax error: missing ';' before '{'
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(46,32): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(83,15): warning C4129: 'G': unrecognized character escape sequence
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(83,15): warning C4129: 'C': unrecognized character escape sequence
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(83,15): warning C4129: 'Q': unrecognized character escape sequence
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(83,15): warning C4129: 'c': unrecognized character escape sequence
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(83,15): warning C4129: 'o': unrecognized character escape sequence
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(84,15): warning C4129: 'M': unrecognized character escape sequence
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(84,15): warning C4129: 'G': unrecognized character escape sequence
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(84,15): warning C4129: 'C': unrecognized character escape sequence
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(84,15): warning C4129: 'Q': unrecognized character escape sequence
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(84,15): warning C4129: 'c': unrecognized character escape sequence
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(84,15): warning C4129: 'o': unrecognized character escape sequence
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(84,15): warning C4129: 'e': unrecognized character escape sequence
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(114,24): error C2065: 'Mask': undeclared identifier
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(187,38): warning C4474: 'fscanf_s' : too many arguments passed for format string
+C:\Users\Matthew\Github\COMP1001\Q1-3\Comp1001_work 2\code_to_start\main.cpp(187,38): message : placeholders and their parameters expect 1 variadic arguments, but 2 were provided
